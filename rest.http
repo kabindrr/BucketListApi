@@ -1,0 +1,34 @@
+@baseURL = http://localhost:3001/api/v1/bucketList
+
+###
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "bucketList":"Combodia",
+    "money":99,
+    "type":"entry"
+
+}
+
+###
+GET {{baseURL}}
+
+
+###
+PUT {{baseURL}}
+Content-Type: application/json
+
+{
+    "_id":"6707221a1f5bbab31e3fab20",
+    "bucketList":"Europe",
+    "money":5000,
+    "type":"bad"
+}
+
+###
+DELETE {{baseURL}}/67071fc186437997e6955936
+Content-Type: application/json
+
+
+
