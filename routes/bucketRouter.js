@@ -9,7 +9,9 @@ import {
 export const bucketRouter = express.Router();
 bucketRouter.post("/", async (req, res, next) => {
   try {
+    console.log(req.body);
     const result = await addBucket(req.body);
+    console.log(result);
 
     result?._id
       ? res.json({ status: "success", message: "New bucket has been added" })
@@ -27,13 +29,13 @@ bucketRouter.post("/", async (req, res, next) => {
 
 bucketRouter.get("/", async (req, res, next) => {
   try {
-    const buckteList = await getBucket();
+    const bucketList = await getBucket();
 
-    buckteList.length > 0
+    bucketList.length > 0
       ? res.json({
           status: "success",
           message: "Here are the list of buckets you have so far",
-          buckteList,
+          bucketList,
         })
       : res.json({
           status: "error",
@@ -47,9 +49,10 @@ bucketRouter.get("/", async (req, res, next) => {
   }
 });
 
-bucketRouter.put("/", async (req, res, next) => {
+bucketRouter.patch("/", async (req, res, next) => {
   try {
     const { _id, ...rest } = req.body;
+
     const editBucket = await updateBucket(_id, rest);
     editBucket?._id
       ? res.json({

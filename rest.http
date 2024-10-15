@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
     "bucketList":"Combodia",
-    "money":99,
+    "money":199,
     "type":"entry"
 
 }
@@ -16,13 +16,13 @@ GET {{baseURL}}
 
 
 ###
-PUT {{baseURL}}
+PATCH  {{baseURL}}
 Content-Type: application/json
 
 {
-    "_id":"6707221a1f5bbab31e3fab20",
+    "_id":"670e1c19534f10f1d7d93115",
     "bucketList":"Europe",
-    "money":5000,
+    "money":3600,
     "type":"bad"
 }
 
