@@ -71,14 +71,23 @@ bucketRouter.patch("/", async (req, res, next) => {
   }
 });
 
-bucketRouter.delete("/:_id", async (req, res, next) => {
+bucketRouter.delete("/", async (req, res, next) => {
   try {
-    const { _id } = req.params;
-    const result = await deleteBucket(_id);
-    res.json({
-      status: "success",
-      message: "Successfully deleted the bucket",
-    });
+    console.log(req.body);
+
+    const result = await deleteBucket(req.body);
+
+    result?.deletedCount
+      ? res.json({
+          status: "success",
+          message: "Successfully deleted the bucket",
+          result,
+        })
+      : res.json({
+          status: "error",
+          message: "Unable to  delete the bucket",
+          result,
+        });
   } catch (error) {
     return res.json({
       status: "error",

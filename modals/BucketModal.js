@@ -12,6 +12,6 @@ export const updateBucket = (_id, rest) => {
   return BucketSchema.findByIdAndUpdate(_id, rest, { new: true });
 };
 
-export const deleteBucket = (_id) => {
-  return BucketSchema.findByIdAndDelete(_id);
+export const deleteBucket = (ids) => {
+  return BucketSchema.deleteMany({ _id: { $in: ids } });
 };

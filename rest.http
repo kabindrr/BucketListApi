@@ -27,8 +27,15 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{baseURL}}/67071fc186437997e6955936
+DELETE {{baseURL}}
 Content-Type: application/json
+
+[
+   "670e1bfc534f10f1d7d93113",
+   "670e1c19534f10f1d7d93115",
+   "670e1c4b534f10f1d7d93117"
+   
+]
 
 
 
