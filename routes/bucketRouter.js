@@ -31,16 +31,11 @@ bucketRouter.get("/", async (req, res, next) => {
   try {
     const bucketList = await getBucket();
 
-    bucketList.length > 0
-      ? res.json({
-          status: "success",
-          message: "Here are the list of buckets you have so far",
-          bucketList,
-        })
-      : res.json({
-          status: "error",
-          message: "You do not have any buckets",
-        });
+    res.json({
+      status: "success",
+      message: "Here are the list of buckets you have so far",
+      bucketList,
+    });
   } catch (error) {
     return res.json({
       status: "error",
