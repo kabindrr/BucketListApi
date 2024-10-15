@@ -73,8 +73,6 @@ bucketRouter.patch("/", async (req, res, next) => {
 
 bucketRouter.delete("/", async (req, res, next) => {
   try {
-    console.log(req.body);
-
     const result = await deleteBucket(req.body);
 
     result?.deletedCount
