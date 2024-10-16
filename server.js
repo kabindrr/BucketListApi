@@ -4,7 +4,7 @@ import morgan from "morgan";
 import cors from "cors";
 import { bucketRouter } from "./routes/bucketRouter.js";
 import dotenv from "dotenv";
-require("dotenv").config();
+dotenv.config()
 
 const app = express();
 const PORT = 3001;
