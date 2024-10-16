@@ -4,7 +4,8 @@ import morgan from "morgan";
 import cors from "cors";
 import { bucketRouter } from "./routes/bucketRouter.js";
 import dotenv from "dotenv";
-dotenv.config()
+dotenv.config();
+import { fileURLToPath } from "url";
 
 const app = express();
 const PORT = 3001;
@@ -20,7 +21,8 @@ app.use("/api/v1/bucketList", bucketRouter);
 
 //static serving
 import path from "path";
-const _dirname = path.resolve();
+const _filename = fileURLToPath(import.meta.url);
+const _dirname = path.dirname(_filename);
 
 //serve the static files from the node
 app.use(express.static(path.join(_dirname, "dist")));
